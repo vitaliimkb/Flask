@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="d-grid gap-2 col-6 mx-auto">
-        <a href="/add-artist" class="btn btn-primary" type="button">Add artist</a>
+        <a href="/add-genre" class="btn btn-primary" type="button">Add genre</a>
     </div>
 
     <br>
@@ -11,24 +11,22 @@
         <thead>
         <tr>
             <th>#</th>
-            <th>Artist name</th>
-            <th>Songs</th>
+            <th>Genre name</th>
             <th>Link 1</th>
             <th>Link 2</th>
         </tr>
         </thead>
 
         <tbody>
-        {% for artist in artists %}
+        {% for genre in genres %}
             <tr>
-                <td>{{ artist[0] }}</td>
-                <td>{{ artist[1] }}</td>
-                <td>Songs</td>
+                <td>{{ genre[0] }}</td>
+                <td>{{ genre[1] }}</td>
                 <td>
-                    <a href="./{{ artist[0] }}/delete" class="btn btn-danger">Delete</a>
+                    <a href="./{{ genre[0] }}/delete" class="btn btn-danger">Delete</a>
                 </td>
                 <td>
-                    <a href="./{{ artist[0] }}/edit" class="btn btn-warning">Edit</a>
+                    <a href="./{{ genre[0] }}/edit" class="btn btn-warning">Edit</a>
                 </td>
             </tr>
         {% endfor %}

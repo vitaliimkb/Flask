@@ -1,33 +1,7 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body> <!-- Jinja -->
-{#    <h1><i>Hello, {{ object.name }}, your age {{ object.age }}</i></h1>#}
-    {% if is_login %}
-        <ul>
-            {% for item in array %}
-                <li>{{ item }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <h3>Login please</h3>
-    {% endif %}
+{% extends 'base.html' %}
 
-<form action="/about" method="post">
-    <input type="text" name="title" placeholder="Write title" required>
-    <input type="submit" value="Send">
-</form>
+{% block content %}
 
-<form action="/about" method="get">
-    <input type="text" name="title" placeholder="Write title" required>
-    <input type="submit" value="Send">
-</form>
+<h1>Main page</h1>
 
-</body>
-</html>
+{% endblock %}

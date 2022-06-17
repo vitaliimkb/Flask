@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>{{ heading }}</h1>
+    <form method="post" class="mb-3">
+        <input type="text" class="form-control"
+               placeholder="Song name" name="title" {% if song %} value="{{ song[1] }}" {% endif %}>
+        <br>
+        <select name="artist" class="form-select">
+            {% for artist in artists %}
+                <option value="{{ artist[0] }}">{{ artist[1] }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <select name="genres" class="form-select" multiple>
+            {% for genre in genres %}
+                <option value="{{ genre[0] }}">{{ genre[1] }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <input type="submit" class="btn btn-success">
+    </form>
+
+{% endblock %}
+
