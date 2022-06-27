@@ -1,7 +1,46 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <h1>{{ heading }}</h1>
+    {% if songs|length > 0 %}
+        <h3 style="margin-top: 50px">Songs</h3>
+        <div class="row">
+            {% for song in songs %}
+                <div class="col-sm-3" style="margin-top: 20px">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ song[1] }}</h5>
+                            <p class="card-text">{{ song[2] }}</p>
+                            <a href="/songs/{{ song[0] }}/detail" class="btn btn-primary">Detail</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
 
-<h1>Main page</h1>
+    {% else %}
+        <h3 style="margin-top: 50px">Songs not found</h3>
+    {% endif %}
+
+    <hr>
+
+    {% if artists|length > 0 %}
+        <h3 style="margin-top: 50px">Artists</h3>
+        <div class="row">
+            {% for artist in artists %}
+                <div class="col-sm-3" style="margin-top: 20px">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ artist[1] }}</h5>
+                            <a href="/artists/{{ artist[0] }}/songs" class="btn btn-primary">Songs</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    {% else %}
+        <h3 style="margin-top: 50px">Artists not found</h3>
+    {% endif %}
 
 {% endblock %}

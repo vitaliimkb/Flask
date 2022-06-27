@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="card text-center">
+        <div class="card-body">
+            <h5 class="card-title">Title: {{ song[2] }}</h5>
+            <p class="card-text">Artist: {{ song[1] }}</p>
+            <p class="card-text text-muted">Genres: {{ song[3] }}</p>
+        </div>
+        <div class="card-footer text-muted">
+            <a href="/songs/{{ song[0] }}/delete" class="btn btn-danger">Delete</a>
+            <a href="/songs/{{ song[0] }}/edit" class="btn btn-warning">Edit</a>
+        </div>
+    </div>
+{% endblock %}

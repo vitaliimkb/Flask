@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1>Edit track</h1>
+        <form method="post" action="./edit">
+            <div class="mb-3">
+                <input type="text" name="title" class="form-control" placeholder="Title" value="{{ song[2] }}">
+            </div>
+            <div class="mb-3">
+                <select class="form-select" name="artist">
+                    {% for artist in artists %}
+                        {% if song[1] == artist[1] %}
+                            <option selected value="{{ artist[0] }}">{{ artist[1] }}</option>
+                        {% else %}
+                            <option value="{{ artist[0] }}">{{ artist[1] }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <select class="form-select" multiple name="genre">
+                    {% for genre in genres %}
+                        <option
+                                {% if genre in current_genres %} selected {% endif %}
+                                                                 value="{{ genre[0] }}"
+                        >
+                            {{ genre[1] }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <input type="submit" class="btn btn-success" value="Send">
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}
